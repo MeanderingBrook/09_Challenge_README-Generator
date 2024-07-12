@@ -1,0 +1,22 @@
+{
+  "name": "09_challenge_readme-generator",
+  "version": "1.0.0",
+  "description": "Node.js CLI-based README File Creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\\\\\"Error: no test specified\\\\\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MeanderingBrook/09_Challenge_README-Generator.git"
+  },
+  "author": "Chris Milazzo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MeanderingBrook/09_Challenge_README-Generator/issues"
+  },
+  "homepage": "https://github.com/MeanderingBrook/09_Challenge_README-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
