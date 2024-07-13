@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-// const axios = require("axios");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const readmeFields = [
@@ -113,33 +113,33 @@ const readmeFields = [
   //     return projectCredits.trim();
   //   },
   // },
-  // {
-  //   type: "list",
-  //   name: "projectLicense",
-  //   message: "Select your Project License: ",
-  //   choices: [
-  //     "Apache License Version 2.0",
-  //     "GNU General Public License Version 3.0",
-  //     "MIT License",
-  //     "BSD 2-Clause 'Simplified' License",
-  //     "BSD 3-Clause 'New' or 'Revised' License",
-  //     "Boost Software License",
-  //     "Creative Commons Zero Version 1.0 Universal",
-  //     "Eclipse Public License Version 2.0",
-  //     "GNU Affero General Public License Version 3.0",
-  //     "GNU General Public License Version 2.0",
-  //     "GNU Lesser General Public License Version 2.1",
-  //     "Mozilla Public License Version 2.0",
-  //     "The Unlicense",
-  //   ],
-  //   default: "Project License",
-  //   validate: (projectLicense) => {
-  //     if (!projectLicense.length) {
-  //       return "Please select a License from the list above.";
-  //     }
-  //     return true;
-  //   },
-  // },
+  {
+    type: "list",
+    name: "projectLicense",
+    message: "Select your Project License: ",
+    choices: [
+      "Apache License Version 2.0",
+      "GNU General Public License Version 3.0",
+      "MIT License",
+      "BSD 2-Clause 'Simplified' License",
+      "BSD 3-Clause 'New' or 'Revised' License",
+      "Boost Software License",
+      "Creative Commons Zero Version 1.0 Universal",
+      "Eclipse Public License Version 2.0",
+      "GNU Affero General Public License Version 3.0",
+      "GNU General Public License Version 2.0",
+      "GNU Lesser General Public License Version 2.1",
+      "Mozilla Public License Version 2.0",
+      "The Unlicense",
+    ],
+    default: "Project License",
+    validate: (projectLicense) => {
+      if (!projectLicense.length) {
+        return "Please select a License from the list above.";
+      }
+      return true;
+    },
+  },
   // {
   //   type: "input",
   //   name: "projectFeat",
@@ -313,12 +313,26 @@ async function init() {
   if (fs.existsSync("README.md")) {
     try {
       const projectInfo = await inquirer.prompt(readmeFields);
-      // console.log("Line 316: ", projectInfo);
+      console.log("Line 316: ", projectInfo);
 
       // const projectGitHub = await getGitHub(projectInfo);
       // console.log("Line 319: ", projectGitHub);
 
+      badgeContent = generateMarkdown(projectInfo);
+
       writeToFile("README.md", projectInfo);
+
+      // NEW
+      // writeToFile("README.md", badgeContent);
+      fs.appendFile("README.md", badgeContent, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Line 328: Badge was successfully written to file.");
+        }
+      });
+
+      // generateMarkdown = generateMarkdown(renderLicenseBadge(projectInfo));
     } catch (error) {
       console.log(error);
     }
