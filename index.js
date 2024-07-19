@@ -1,10 +1,12 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const generateMarkdown = require("./utils/generateMarkdown");
+
+// Require Application Modules
+const generateMarkdown = require("./utils/generateMarkdown.js");
 
 // TODO: Create an array of questions for user input
-const readmeFields = [
+const readmeQuestions = [
   {
     type: "input",
     name: "projectTitle",
@@ -128,7 +130,7 @@ const readmeFields = [
       "Eclipse Public License Version 2.0",
       "GNU Affero General Public License Version 3.0",
       "GNU General Public License Version 2.0",
-      "GNU Lesser General Public License Version 2.1",
+      "GNU Lesser General Public License Version 3.0",
       "Mozilla Public License Version 2.0",
       "The Unlicense",
     ],
@@ -250,121 +252,150 @@ async function getGitHub(answers) {
 }
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  // const fileName = "README.md";
+// function writeToFile(fileName, data) {
+// function writeToFile(fileName) {
+function writeToFile(data) {}
+//   // const fileName = "README.md";
 
-  let userInput = "\n";
+//   // const projectInfo = inquirer.prompt(readmeFields).then((answers) => {
+//   inquirer.prompt(readmeFields).then((answers) => {
+//     console.log("Line 258: ", answers);
 
-  for (const [key, value] of Object.entries(data)) {
-    userInput += `${value} \n`;
-    console.log("Line 260: ", userInput);
-  }
+//     let userInput = "\n";
 
-  fs.appendFile(fileName, userInput, (err) => {
+//     for (const [key, value] of Object.entries(answers)) {
+//       userInput += `${value} \n`;
+//       console.log("Line 264: ", userInput);
+//     }
+
+//     fs.appendFile(fileName, userInput, (err) => {
+//       if (err) {
+//         console.log("Line 269: ", err);
+//       } else {
+//         console.log(
+//           `Line 271: User Inputs were sucessfully written to the file, ${fileName}.`
+//         );
+//         return answers;
+//       }
+//     });
+//   });
+
+//   // return answers;
+
+//   // WORKS OLD
+//   // // // // // // //
+//   // let userInput = "\n";
+
+//   // for (const [key, value] of Object.entries(data)) {
+//   //   userInput += `${value} \n`;
+//   //   console.log("Line 260: ", userInput);
+//   // }
+
+//   // fs.appendFile(fileName, userInput, (err) => {
+//   //   if (err) {
+//   //     console.log(err);
+//   //   } else {
+//   //     console.log(
+//   //       `Line 268: User Inputs were sucessfully written to the file, ${fileName}.`
+//   //     );
+//   //   }
+//   // });
+//   // // // // // // //
+
+//   // projectInfo = inquirer.prompt(readmeFields).then((answers) => {
+//   //   console.log(answers);
+
+//   // DELETE !!!
+//   // userGitHubURL = getGitHub(result.html_url);
+//   // console.log(getGitHub(result.html_url));
+
+//   // MeanderingBrook
+
+//   // const fileName = "README.md";
+
+//   // let userInput = "\n";
+
+//   // for (const [key, value] of Object.entries(answers)) {
+//   //   userInput += `${value} \n`;
+//   //   // console.log(userInput);
+//   // }
+
+//   // fs.appendFile(fileName, userInput, (err) => {
+//   //   if (err) {
+//   //     console.log(err);
+//   //   } else {
+//   //     console.log(
+//   //       `User Inputs were sucessfully written to the file, ${fileName}.`
+//   //     );
+//   //   }
+//   // });
+
+//   // fs.appendFile(fileName, userName, (err) => {
+//   //   if (err) {
+//   //     console.log(err);
+//   //   } else {
+//   //     console.log(`GitHub User Name is, ${userName}.`);
+//   //   }
+//   // });
+//   // });
+// }
+
+function checkForFile(filePath) {
+  // readmePath = "./output/README.md";
+
+  fs.access(readmePath, fs.constants.F_OK, (err) => {
     if (err) {
-      console.log(err);
+      console.log(`${readmePath} does not exist.`);
+      const fileTitle = "# 09_Challenge_README-Generator";
+      fs.writeFile(readmePath, fileTitle, { flag: "a+" }, (err) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log("Line 322: File Created Successfully");
+          // writeToFile(readmePath);
+        }
+      });
     } else {
-      console.log(
-        `Line 268: User Inputs were sucessfully written to the file, ${fileName}.`
-      );
+      console.log(`${readmePath} already exists.`);
+      // writeToFile(readmePath);
     }
   });
-
-  // projectInfo = inquirer.prompt(readmeFields).then((answers) => {
-  //   console.log(answers);
-
-  // DELETE !!!
-  // userGitHubURL = getGitHub(result.html_url);
-  // console.log(getGitHub(result.html_url));
-
-  // MeanderingBrook
-
-  // const fileName = "README.md";
-
-  // let userInput = "\n";
-
-  // for (const [key, value] of Object.entries(answers)) {
-  //   userInput += `${value} \n`;
-  //   // console.log(userInput);
-  // }
-
-  // fs.appendFile(fileName, userInput, (err) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(
-  //       `User Inputs were sucessfully written to the file, ${fileName}.`
-  //     );
-  //   }
-  // });
-
-  // fs.appendFile(fileName, userName, (err) => {
-  //   if (err) {
-  //     console.log(err);
-  //   } else {
-  //     console.log(`GitHub User Name is, ${userName}.`);
-  //   }
-  // });
-  // });
 }
 
 // TODO: Create a function to initialize app
 async function init() {
-  if (fs.existsSync("README.md")) {
-    try {
-      const projectInfo = await inquirer.prompt(readmeFields);
-      console.log("Line 316: ", projectInfo);
+  readmePath = "./output/README.md";
 
-      // const projectGitHub = await getGitHub(projectInfo);
-      // console.log("Line 319: ", projectGitHub);
+  checkForFile(readmePath);
 
-      badgeContent = generateMarkdown(projectInfo);
+  // Request User Input to README Questions
+  const userInput = await inquirer.prompt(readmeQuestions);
+  // console.log("Line 372", userInput);
 
-      writeToFile("README.md", projectInfo);
+  const markDownContent = generateMarkdown(userInput);
+  console.log("Line 375", markDownContent);
 
-      // NEW
-      // writeToFile("README.md", badgeContent);
-      fs.appendFile("README.md", badgeContent, (err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          console.log("Line 328: Badge was successfully written to file.");
-        }
-      });
-
-      // generateMarkdown = generateMarkdown(renderLicenseBadge(projectInfo));
-    } catch (error) {
-      console.log(error);
+  fs.appendFile(readmePath, markDownContent, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Line 384: Data was successfuly written to file.");
     }
+  });
 
-    // const projectData = await writeToFile();
-    // console.log(projectData);
+  // badgeContent = generateMarkdown(userInput);
+  // console.log(badgeContent);
 
-    // const userInfo = await getGitHub(answers);
-    // console.log("Line 299", userInfo);
-  } else {
-    const fileTitle = "# 09_Challenge_README-Generator";
+  // const writeFileAsync = util.promisify(fs.writeFile);
+  // await writeFileAsync(readmePath, badgeContent);
 
-    fs.writeFile("./README.md", fileTitle, { flag: "a+" }, (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Line 338: File Created Successfully");
-        // writeToFile();
-
-        try {
-          const projectInfo = inquirer.prompt(readmeFields);
-          console.log("Line 343: ", projectInfo);
-
-          // const projectGitHub = await getGitHub(projectInfo);
-
-          writeToFile("README.md", projectInfo);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    });
-  }
+  // fs.appendFile("./output/README.md", badgeContent, (err) => {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log("Line 389: Badge was successfully written to file.");
+  //   }
+  // });
 }
 
 // Function call to initialize app
