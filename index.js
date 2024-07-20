@@ -25,96 +25,96 @@ const readmeQuestions = [
       return projectTitle.trim();
     },
   },
-  // {
-  //   type: "input",
-  //   name: "projectDesc",
-  //   message: "Enter your Project Description: ",
-  //   default: "Project Description",
-  //   validate: (projectDesc) => {
-  //     if (!projectDesc.length) {
-  //       return "Please provide a Project Description.";
-  //     }
-  //     if (projectDesc.length <= 10 || projectDesc.length > 50) {
-  //       return "Please provide a Project Description of a length between ten (10) and fifty (50) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectDesc) => {
-  //     return projectDesc.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectInstall",
-  //   message: "Enter your Project Installation Instructions: ",
-  //   default: "Project Installation",
-  //   validate: (projectInstall) => {
-  //     if (!projectInstall.length) {
-  //       return "Please provide Project Installation Instructions.";
-  //     }
-  //     if (projectInstall.length <= 20 || projectInstall.length > 100) {
-  //       return "Please provide Project Installation Instructions of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectInstall) => {
-  //     return projectInstall.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectUse",
-  //   message: "Enter your Project Use Guidelines: ",
-  //   default: "Project Use Guidelines",
-  //   validate: (projectUse) => {
-  //     if (!projectUse.length) {
-  //       return "Please provide Project Use Guidelines.";
-  //     }
-  //     if (projectUse.length <= 20 || projectUse.length > 100) {
-  //       return "Please provide Project Use Guidelines of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectUse) => {
-  //     return projectUse.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectContr",
-  //   message: "Enter your Project Contribution Guidelines: ",
-  //   default: "Project Contribution Guidelines",
-  //   validate: (projectContr) => {
-  //     if (!projectContr.length) {
-  //       return "Please provide Project Contribution guidelines.";
-  //     }
-  //     if (projectContr.length <= 20 || projectContr.length > 100) {
-  //       return "Please provide Project Contribution Guidelines of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectContr) => {
-  //     return projectContr.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectCredits",
-  //   message: "Enter your Project Credits: ",
-  //   default: "Project Credits",
-  //   validate: (projectCredits) => {
-  //     if (!projectCredits.length) {
-  //       return "Please provide Project Contribution guidelines.";
-  //     }
-  //     if (projectCredits.length <= 20 || projectCredits.length > 100) {
-  //       return "Please provide Project Credits of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectCredits) => {
-  //     return projectCredits.trim();
-  //   },
-  // },
+  {
+    type: "input",
+    name: "projectDesc",
+    message: "Enter your Project Description: ",
+    default: "Project Description",
+    validate: (projectDesc) => {
+      if (!projectDesc.length) {
+        return "Please provide a Project Description.";
+      }
+      if (projectDesc.length <= 10 || projectDesc.length > 50) {
+        return "Please provide a Project Description of a length between ten (10) and fifty (50) characters.";
+      }
+      return true;
+    },
+    filter: (projectDesc) => {
+      return projectDesc.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectInstall",
+    message: "Enter your Project Installation Instructions: ",
+    default: "Project Installation",
+    validate: (projectInstall) => {
+      if (!projectInstall.length) {
+        return "Please provide Project Installation Instructions.";
+      }
+      if (projectInstall.length <= 20 || projectInstall.length > 100) {
+        return "Please provide Project Installation Instructions of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectInstall) => {
+      return projectInstall.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectUse",
+    message: "Enter your Project Use Guidelines: ",
+    default: "Project Use Guidelines",
+    validate: (projectUse) => {
+      if (!projectUse.length) {
+        return "Please provide Project Use Guidelines.";
+      }
+      if (projectUse.length <= 20 || projectUse.length > 100) {
+        return "Please provide Project Use Guidelines of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectUse) => {
+      return projectUse.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectCredits",
+    message: "Enter your Project Credits: ",
+    default: "Project Credits",
+    validate: (projectCredits) => {
+      if (!projectCredits.length) {
+        return "Please provide Project Contribution guidelines.";
+      }
+      if (projectCredits.length <= 20 || projectCredits.length > 100) {
+        return "Please provide Project Credits of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectCredits) => {
+      return projectCredits.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectContr",
+    message: "Enter your Project Contribution Guidelines: ",
+    default: "Project Contribution Guidelines",
+    validate: (projectContr) => {
+      if (!projectContr.length) {
+        return "Please provide Project Contribution guidelines.";
+      }
+      if (projectContr.length <= 20 || projectContr.length > 100) {
+        return "Please provide Project Contribution Guidelines of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectContr) => {
+      return projectContr.trim();
+    },
+  },
   {
     type: "list",
     name: "projectLicense",
@@ -142,60 +142,60 @@ const readmeQuestions = [
       return true;
     },
   },
-  // {
-  //   type: "input",
-  //   name: "projectFeat",
-  //   message: "Enter your Project Features: ",
-  //   default: "Project Features",
-  //   validate: (projectFeat) => {
-  //     if (!projectFeat.length) {
-  //       return "Please provide Project Features.";
-  //     }
-  //     if (projectFeat.length <= 20 || projectFeat.length > 100) {
-  //       return "Please provide Project Features of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectFeat) => {
-  //     return projectFeat.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectTests",
-  //   message: "Enter your Project Test Instructions: ",
-  //   default: "Project Tests",
-  //   validate: (projectTests) => {
-  //     if (!projectTests.length) {
-  //       return "Please provide Project Test Instructions.";
-  //     }
-  //     if (projectTests.length <= 20 || projectTests.length > 100) {
-  //       return "Please provide Project Test Instructions of a length between twenty (20) and one hundred (100) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectTests) => {
-  //     return projectTests.trim();
-  //   },
-  // },
-  // {
-  //   type: "input",
-  //   name: "projectRepo",
-  //   message: "Enter your Project (GitHub) Repository Name: ",
-  //   default: "Project Repository",
-  //   validate: (projectRepo) => {
-  //     if (!projectRepo.length) {
-  //       return "Please provide your Project Repository Name.";
-  //     }
-  //     if (projectRepo.length <= 5 || projectRepo.length > 50) {
-  //       return "Please provide Project Repository Name of a length between five (5) and fifty (50) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectRepo) => {
-  //     return projectRepo.trim();
-  //   },
-  // },
+  {
+    type: "input",
+    name: "projectFeat",
+    message: "Enter your Project Features: ",
+    default: "Project Features",
+    validate: (projectFeat) => {
+      if (!projectFeat.length) {
+        return "Please provide Project Features.";
+      }
+      if (projectFeat.length <= 20 || projectFeat.length > 100) {
+        return "Please provide Project Features of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectFeat) => {
+      return projectFeat.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectTests",
+    message: "Enter your Project Test Instructions: ",
+    default: "Project Tests",
+    validate: (projectTests) => {
+      if (!projectTests.length) {
+        return "Please provide Project Test Instructions.";
+      }
+      if (projectTests.length <= 20 || projectTests.length > 100) {
+        return "Please provide Project Test Instructions of a length between twenty (20) and one hundred (100) characters.";
+      }
+      return true;
+    },
+    filter: (projectTests) => {
+      return projectTests.trim();
+    },
+  },
+  {
+    type: "input",
+    name: "projectRepo",
+    message: "Enter your Project (GitHub) Repository Name: ",
+    default: "Project Repository",
+    validate: (projectRepo) => {
+      if (!projectRepo.length) {
+        return "Please provide your Project Repository Name.";
+      }
+      if (projectRepo.length <= 5 || projectRepo.length > 50) {
+        return "Please provide Project Repository Name of a length between five (5) and fifty (50) characters.";
+      }
+      return true;
+    },
+    filter: (projectRepo) => {
+      return projectRepo.trim();
+    },
+  },
   {
     type: "input",
     name: "projectUserName",
@@ -214,188 +214,86 @@ const readmeQuestions = [
       return projectUserName.trim();
     },
   },
-  // {
-  //   type: "input",
-  //   name: "projectEmail",
-  //   message: "Enter your GitHub-associated Email Address: ",
-  //   default: "GitHub Email Address",
-  //   validate: (projectEmail) => {
-  //     if (!projectEmail.length) {
-  //       return "Please provide your GitHub-associated Email Address.";
-  //     }
-  //     if (projectEmail.length <= 5 || projectEmail.length > 50) {
-  //       return "Please provide your GitHub-associated Email Address of a length between five (5) and fifty (50) characters.";
-  //     }
-  //     return true;
-  //   },
-  //   filter: (projectEmail) => {
-  //     return projectEmail.trim();
-  //   },
-  // },
+  {
+    type: "input",
+    name: "projectEmail",
+    message: "Enter your GitHub-associated Email Address: ",
+    default: "GitHub Email Address",
+    validate: (projectEmail) => {
+      if (!projectEmail.length) {
+        return "Please provide your GitHub-associated Email Address.";
+      }
+      if (projectEmail.length <= 5 || projectEmail.length > 50) {
+        return "Please provide your GitHub-associated Email Address of a length between five (5) and fifty (50) characters.";
+      }
+      return true;
+    },
+    filter: (projectEmail) => {
+      return projectEmail.trim();
+    },
+  },
 ];
 
-// Calls GitHub API for Project User Information
-async function getGitHub(answers) {
-  const url = `https://api.github.com/users/${answers.projectUserName}`;
-
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-
-    // console.log("GitHub User Information: ", result);
-    // console.log(`GitHub User Name: ${result.login}`);
-
-    return result;
-  } catch (error) {
-    console.log(error);
-  }
+// TODO: Create a function to write README file
+function writeToFile(readmePath, markdownContent) {
+  fs.appendFile(readmePath, markdownContent, (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Line 243: Data was successfuly written to file.");
+    }
+  });
 }
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-// function writeToFile(fileName) {
-function writeToFile(data) {}
-//   // const fileName = "README.md";
-
-//   // const projectInfo = inquirer.prompt(readmeFields).then((answers) => {
-//   inquirer.prompt(readmeFields).then((answers) => {
-//     console.log("Line 258: ", answers);
-
-//     let userInput = "\n";
-
-//     for (const [key, value] of Object.entries(answers)) {
-//       userInput += `${value} \n`;
-//       console.log("Line 264: ", userInput);
-//     }
-
-//     fs.appendFile(fileName, userInput, (err) => {
-//       if (err) {
-//         console.log("Line 269: ", err);
-//       } else {
-//         console.log(
-//           `Line 271: User Inputs were sucessfully written to the file, ${fileName}.`
-//         );
-//         return answers;
-//       }
-//     });
-//   });
-
-//   // return answers;
-
-//   // WORKS OLD
-//   // // // // // // //
-//   // let userInput = "\n";
-
-//   // for (const [key, value] of Object.entries(data)) {
-//   //   userInput += `${value} \n`;
-//   //   console.log("Line 260: ", userInput);
-//   // }
-
-//   // fs.appendFile(fileName, userInput, (err) => {
-//   //   if (err) {
-//   //     console.log(err);
-//   //   } else {
-//   //     console.log(
-//   //       `Line 268: User Inputs were sucessfully written to the file, ${fileName}.`
-//   //     );
-//   //   }
-//   // });
-//   // // // // // // //
-
-//   // projectInfo = inquirer.prompt(readmeFields).then((answers) => {
-//   //   console.log(answers);
-
-//   // DELETE !!!
-//   // userGitHubURL = getGitHub(result.html_url);
-//   // console.log(getGitHub(result.html_url));
-
-//   // MeanderingBrook
-
-//   // const fileName = "README.md";
-
-//   // let userInput = "\n";
-
-//   // for (const [key, value] of Object.entries(answers)) {
-//   //   userInput += `${value} \n`;
-//   //   // console.log(userInput);
-//   // }
-
-//   // fs.appendFile(fileName, userInput, (err) => {
-//   //   if (err) {
-//   //     console.log(err);
-//   //   } else {
-//   //     console.log(
-//   //       `User Inputs were sucessfully written to the file, ${fileName}.`
-//   //     );
-//   //   }
-//   // });
-
-//   // fs.appendFile(fileName, userName, (err) => {
-//   //   if (err) {
-//   //     console.log(err);
-//   //   } else {
-//   //     console.log(`GitHub User Name is, ${userName}.`);
-//   //   }
-//   // });
-//   // });
-// }
-
+// Determines if README file exists and creates new file if no
 function checkForFile(filePath) {
-  // readmePath = "./output/README.md";
-
   fs.access(readmePath, fs.constants.F_OK, (err) => {
     if (err) {
       console.log(`${readmePath} does not exist.`);
-      const fileTitle = "# 09_Challenge_README-Generator";
+      const fileTitle =
+        "# Full-Stack Developer Bootcamp Module 09 - Challenge: README Generator \n";
       fs.writeFile(readmePath, fileTitle, { flag: "a+" }, (err) => {
         if (err) {
           console.log(err);
         } else {
-          console.log("Line 322: File Created Successfully");
-          // writeToFile(readmePath);
+          console.log("Line 261: File Created Successfully");
         }
       });
     } else {
       console.log(`${readmePath} already exists.`);
-      // writeToFile(readmePath);
     }
   });
 }
 
 // TODO: Create a function to initialize app
 async function init() {
+  // Defines README File output location and File Name
   readmePath = "./output/README.md";
 
+  // Determines if README file exists and creates new file if no
   checkForFile(readmePath);
 
-  // Request User Input to README Questions
+  // Requests User Input to README Questions
   const userInput = await inquirer.prompt(readmeQuestions);
-  // console.log("Line 372", userInput);
+  // console.log("Line 280", userInput);
 
-  const markDownContent = generateMarkdown(userInput);
-  console.log("Line 375", markDownContent);
+  // Generates Markdown Content based upon User responses to README Questions
+  const markdownContent = generateMarkdown(userInput);
+  // console.log("Line 284", markdownContent);
 
-  fs.appendFile(readmePath, markDownContent, (err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Line 384: Data was successfuly written to file.");
-    }
-  });
+  // NEW !!! JULY 20
+  writeToFile(readmePath, markdownContent);
 
-  // badgeContent = generateMarkdown(userInput);
-  // console.log(badgeContent);
-
-  // const writeFileAsync = util.promisify(fs.writeFile);
-  // await writeFileAsync(readmePath, badgeContent);
-
-  // fs.appendFile("./output/README.md", badgeContent, (err) => {
+  // // // //
+  // THIS WORKS COMMENTED OUT JULY 20 !!! COPIED TO writeToFile
+  // fs.appendFile(readmePath, markdownContent, (err) => {
   //   if (err) {
   //     console.log(err);
   //   } else {
-  //     console.log("Line 389: Badge was successfully written to file.");
+  //     console.log("Line 368: Data was successfuly written to file.");
   //   }
   // });
+  // // // //
 }
 
 // Function call to initialize app
