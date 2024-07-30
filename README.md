@@ -120,8 +120,8 @@ Not Applicable: Application is a Node.js Command Line Interface (CLI)-based appl
 
 ## Application Screenshots
 
-![README Generator: CLI Questionnaire - Screenshot 01](./assets/images/README-Generator_CLI-Questionnaire_Screenshot-01.png?raw=true "README Generator: CLI Questionnaire - Screenshot 01")
+![README Generator: CLI Questionnaire - Screenshot 01](./assets/images/README-Generator_CLI-Questionnaire_Screenshot-01.png?raw=true "README Generator: CLI Questionnaire")
 
-![README Generator: CLI Questionnaire with Validation Warning - Screenshot 02](./assets/images/README-Generator_CLI-Questionnaire-Validation-Warning_Screenshot-02.png?raw=true "README Generator: CLI Questionnaire with Validation Warning - Screenshot 02")
+![README Generator: CLI Questionnaire with Validation Warning - Screenshot 02](./assets/images/README-Generator_CLI-Questionnaire-Validation-Warning_Screenshot-02.png?raw=true "README Generator: CLI Questionnaire with Validation Warning")
 
-![README Generator: CLI Questionnaire with Process Completion Notice - Screenshot 03](./assets/images/README-Generator_CLI-Questionnaire-Process-Completion-Notice_Screenshot%2003.png?raw=true "README Generator: CLI Questionnaire with Process Completion Notice - Screenshot 03")
+![README Generator: CLI Questionnaire with Process Completion Notice - Screenshot 03](./assets/images/README-Generator_CLI-Questionnaire-Process-Completion-Notice_Screenshot%2003.png?raw=true "README Generator: CLI Questionnaire with Process Completion Notice")
