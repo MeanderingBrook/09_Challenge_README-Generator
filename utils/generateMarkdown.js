@@ -135,7 +135,7 @@ function renderLicenseSection(projectLicense) {
   const licenseURL = renderLicenseLink(projectLicense);
   // console.log("genMD - Line 136:", licenseURL);
 
-  licenseDecl = `This Application is Licensed under the terms of ${licenseName}. \nPlease refer to the License terms at the [${licenseName}](${licenseURL}) site.`;
+  licenseDecl = `This Application is Licensed under the terms of ${licenseName}. \n \nPlease refer to the License terms at the [${licenseName}](${licenseURL}) site.`;
   // console.log("genMD - Line 139:", licenseDecl);
 
   return licenseDecl;
@@ -148,9 +148,6 @@ async function getGitHub(projectUserName) {
   try {
     const response = await fetch(url);
     const result = await response.json();
-
-    // console.log("GitHub User Information: ", result);
-    // console.log(`GitHub User Name: ${result.login}`);
 
     return result;
   } catch (error) {
@@ -169,8 +166,10 @@ function generateMarkdown(answers) {
   licenseDecl = renderLicenseSection(answers.projectLicense);
   // console.log("genMD - Line 170:", licenseDecl);
 
-  userGitHubID = getGitHub(answers.projectUserName);
-  console.log(userGitHubID);
+  // Deprecated in favor of simple GitHub Profile URL Reference
+  // Calls GitHub API for User Profile Information
+  // userGitHubID = getGitHub(answers.projectUserName);
+  // console.log(userGitHubID);
 
   return `
 # ${answers.projectTitle}
@@ -233,9 +232,8 @@ ${answers.projectRepo}
 ## GitHub Pages Location
 
 
-## GitHub Creator Identity
-${answers.projectUserName}
-${userGitHubID}
+## Questions
+[Visit my GitHub Profile here.](https://github.com/${answers.projectUserName})
 
 
 ## Contact Information

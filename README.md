@@ -22,36 +22,35 @@
 
 The README Generator is a Node.js Command-Line Interface (CLI) based application that enables Users to quickly and professionally create Project README files, in Markdown (.md) format by answering a simple string of questions regarding the User's Project.  
 
-The README Generator enhances the generated Markdown file with programattically-generated colored badges, and URL references.
+The README Generator programatically creates README files with content determined by User responses to questions associated with the individual sections of a model README, and enhances the generated Markdown file with similarly programattically-generated colored badges, and URL references.
 
+The README Generator ensures consistency of generated output, through programmatically-standardized specifications defined by the User questionnaire, and makes available the output Markdown file in a defined (predictable) location and file format that enables automated ingestion to, or use through and end-point application.
 
-The Dashboard places accurate, timely Weather information at Users' fingertips, utilizing the industry-leading Weater information of OpenWeather through responsive through flexible OpenWeather APIs.
+As developed, the README Generator is only accessible through a local instance, specific to each accessing computer.
 
-As developed, the Weather Dashboard is only accessible through a local instance, specific to each accessing computer.
+Artifacts (README Markdown files) generated through local instances of the README Generator will be available to all Users of the install computer, held in on-device storage and, consequently, not currently accessible through the Web unless deployed as a component of an online application or other end-point.
 
-Weather Dashboard data is "live," through active refreshes using OpenWeather APIs, but historical location Searches, are held in the Local Storage and, consequently, not currently accessible through the Web.
+The README Generator source code is published on GitHub, and may be cloned to individual User computers to instantiate local versions.
 
-The Weather Dashboard source code is published on GitHub, and may be cloned to individual User computers to instantiate local versions.
+The app utilizes a Node.js CLI-based (Inquirer Module) Form to ingest User requirements input, and JavaScript (mediated by Node) to generate local Markdown file output. 
 
-Weather Dashboard historical location Searches are recorded through a City search entry form availabe in the Dashboard itself and aggregated and displayed in the Dashboard sidebar UI.
-
-The app utlizes an HTML-based Form to ingest User search input, JavaScript to push location Searches to Local Storage, and dynamically update the Dashboard with new Search locations, and CSS to style the site. JavaScript is also used to drive OpenWeather API calls, and responsive behavior, such as Search history display updates.
-
-Because the Weather Dashboard is held in Local Storage, location Search entries will persist across User sessions on individual, hosting computers.
+Because the README Generator output files are held in on-device storage, generated artifacts, though not Inquirer-mediated questionnaire responses themselves, will persist across User sessions on individual, hosting computers.
 
 
 ## Installation
 
-The Weather Dashboard source code may be downloaded from its GitHub repository, and run directly by a hosting computer.
+The README Generator source code may be downloaded from its GitHub repository, and run directly by a hosting computer.
 
-No Installation of the Weather Dashboard is required; the app is fully browser-based, accessed through any modern browser that supports JavaScript.
+No Installation of the SVG Logo Generator itself is required.
+
+However, local computers must hold an installation of Node.js in order the run the README Generator application.
 
 
 ## Usage
 
-The Weather Dashboard is intended for use by one or more Users to view personalized Weather information specific to User-selected locations (Cities) and maintain a quick-access history of location Searches that will be held locally, persisting across multiple sessions. 
+The README Generator is intended for use by one or more Users to generate README files, in Markdown format, specific to User-selected requirements (i.e., README content) identified through a CLI-based questionaire, and maintain the locally-generated Markdown file artifacts which persist across multiple sessions. 
 
-All Users of the Weather Dashboard on a local computer will have full visibility to all Dashboard location Searches.
+All Users of the README Generator on a local computer will have full access to all generated artifacts.
 
 
 ## Credits and Code Source
@@ -104,30 +103,25 @@ N / A
 
 ## Tests
 
-API parameter testing and data evaluation, see test.js (Archive)
+Specification output testing and data evaluation, see index-test.js, and log.txt ('archive' Folder)
 
-JavaScript-created Dashboard presentation of Weather serach entries as &lt;ul&gt; to confirm searchHistory (Array) update.
-
-`console.log` output of OpenWeather API data specific to called locations and Search history data on Search requests; see script.js.
+`console.log` output of specification data specific to User requirements; see index.js and generateMarkdown.js ('utils' Folder).
 
 
 ## GitHub Repository Location (HTTPS)
 
-https://github.com/MeanderingBrook/06_Challenge_Weather-Dashboard.git
+https://github.com/MeanderingBrook/09_Challenge_README-Generator.git
 
 
 ## GitHub Pages Location
 
-https://meanderingbrook.github.io/06_Challenge_Weather-Dashboard/
+Not Applicable: Application is a Node.js Command Line Interface (CLI)-based application that cannot be hosted through a browser interface.
 
 
 ## Application Screenshots
 
-![Weather Dashboard: Empty Dashboard Screenshot](./assets/images/Weather-Dashboard_Empty-Dashboard_Screenshot.png?raw=true "Weather Dashboard: Empty Dashboard")
+![README Generator: CLI Questionnaire - Screenshot 01](./assets/images/README-Generator_CLI-Questionnaire_Screenshot-01.png?raw=true "README Generator: CLI Questionnaire - Screenshot 01")
 
-![Weather Dashboard: Populated Dashboard Screenshot 01 - San Francisco](./assets/images/Weather-Dashboard_Populated-Dashboard_Screenshot-01.png?raw=true "Weather Dashboard: Populated Dashboard  - San Francisco")
+![README Generator: CLI Questionnaire with Validation Warning - Screenshot 02](./assets/images/README-Generator_CLI-Questionnaire-Validation-Warning_Screenshot-02.png?raw=true "README Generator: CLI Questionnaire with Validation Warning - Screenshot 02")
 
-![Weather Dashboard: Populated Dashboard Screenshot 02 - Des Moines](./assets/images/Weather-Dashboard_Populated-Dashboard_Screenshot-02.png?raw=true "Weather Dashboard: Populated Dashboard  - Des Moines")
-
-![Weather Dashboard: Populated Dashboard Screenshot 03 - Miami](./assets/images/Weather-Dashboard_Populated-Dashboard_Screenshot-03.png "Weather Dashboard: Populated Dashboard  - Miami")
-
+![README Generator: CLI Questionnaire with Process Completion Notice - Screenshot 03](./assets/images/README-Generator_CLI-Questionnaire-Process-Completion-Notice_Screenshot%2003.png?raw=true "README Generator: CLI Questionnaire with Process Completion Notice - Screenshot 03")
