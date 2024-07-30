@@ -4,6 +4,7 @@ const inquirer = require("inquirer");
 
 // Require Application Modules
 const generateMarkdown = require("./utils/generateMarkdown.js");
+const { Resolver } = require("dns");
 
 // TODO: Create an array of questions for user input
 const readmeQuestions = [
@@ -34,8 +35,8 @@ const readmeQuestions = [
       if (!projectDesc.length) {
         return "Please provide a Project Description.";
       }
-      if (projectDesc.length <= 10 || projectDesc.length > 50) {
-        return "Please provide a Project Description of a length between ten (10) and fifty (50) characters.";
+      if (projectDesc.length <= 5 || projectDesc.length > 20) {
+        return "Please provide a Project Description of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -52,8 +53,8 @@ const readmeQuestions = [
       if (!projectInstall.length) {
         return "Please provide Project Installation Instructions.";
       }
-      if (projectInstall.length <= 20 || projectInstall.length > 100) {
-        return "Please provide Project Installation Instructions of a length between twenty (20) and one hundred (100) characters.";
+      if (projectInstall.length <= 5 || projectInstall.length > 20) {
+        return "Please provide Project Installation Instructions of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -70,8 +71,8 @@ const readmeQuestions = [
       if (!projectUse.length) {
         return "Please provide Project Use Guidelines.";
       }
-      if (projectUse.length <= 20 || projectUse.length > 100) {
-        return "Please provide Project Use Guidelines of a length between twenty (20) and one hundred (100) characters.";
+      if (projectUse.length <= 5 || projectUse.length > 20) {
+        return "Please provide Project Use Guidelines of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -88,8 +89,8 @@ const readmeQuestions = [
       if (!projectCredits.length) {
         return "Please provide Project Contribution guidelines.";
       }
-      if (projectCredits.length <= 20 || projectCredits.length > 100) {
-        return "Please provide Project Credits of a length between twenty (20) and one hundred (100) characters.";
+      if (projectCredits.length <= 5 || projectCredits.length > 20) {
+        return "Please provide Project Credits of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -106,8 +107,8 @@ const readmeQuestions = [
       if (!projectContr.length) {
         return "Please provide Project Contribution guidelines.";
       }
-      if (projectContr.length <= 20 || projectContr.length > 100) {
-        return "Please provide Project Contribution Guidelines of a length between twenty (20) and one hundred (100) characters.";
+      if (projectContr.length <= 5 || projectContr.length > 20) {
+        return "Please provide Project Contribution Guidelines of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -151,8 +152,8 @@ const readmeQuestions = [
       if (!projectFeat.length) {
         return "Please provide Project Features.";
       }
-      if (projectFeat.length <= 20 || projectFeat.length > 100) {
-        return "Please provide Project Features of a length between twenty (20) and one hundred (100) characters.";
+      if (projectFeat.length <= 5 || projectFeat.length > 20) {
+        return "Please provide Project Features of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -169,8 +170,8 @@ const readmeQuestions = [
       if (!projectTests.length) {
         return "Please provide Project Test Instructions.";
       }
-      if (projectTests.length <= 20 || projectTests.length > 100) {
-        return "Please provide Project Test Instructions of a length between twenty (20) and one hundred (100) characters.";
+      if (projectTests.length <= 5 || projectTests.length > 20) {
+        return "Please provide Project Test Instructions of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -187,8 +188,8 @@ const readmeQuestions = [
       if (!projectRepo.length) {
         return "Please provide your Project Repository Name.";
       }
-      if (projectRepo.length <= 5 || projectRepo.length > 50) {
-        return "Please provide Project Repository Name of a length between five (5) and fifty (50) characters.";
+      if (projectRepo.length <= 5 || projectRepo.length > 20) {
+        return "Please provide Project Repository Name of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -205,8 +206,8 @@ const readmeQuestions = [
       if (!projectUserName.length) {
         return "Please provide your GitHub User Name.";
       }
-      if (projectUserName.length <= 5 || projectUserName.length > 50) {
-        return "Please provide your GitHub User Name of a length between five (5) and fifty (50) characters.";
+      if (projectUserName.length <= 5 || projectUserName.length > 20) {
+        return "Please provide your GitHub User Name of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -223,8 +224,8 @@ const readmeQuestions = [
       if (!projectEmail.length) {
         return "Please provide your GitHub-associated Email Address.";
       }
-      if (projectEmail.length <= 5 || projectEmail.length > 50) {
-        return "Please provide your GitHub-associated Email Address of a length between five (5) and fifty (50) characters.";
+      if (projectEmail.length <= 5 || projectEmail.length > 20) {
+        return "Please provide your GitHub-associated Email Address of a length between five (5) and twenty (20) characters.";
       }
       return true;
     },
@@ -247,21 +248,26 @@ function writeToFile(readmePath, markdownContent) {
 
 // Determines if README file exists and creates new file if no
 function checkForFile(filePath) {
-  fs.access(readmePath, fs.constants.F_OK, (err) => {
-    if (err) {
+  return new Promise((resolve, reject) => {
+    fs.access(readmePath, fs.constants.F_OK, (err) => {
+      if (!err) {
+        console.log(`${readmePath} already exists.`);
+        resolve(true);
+      }
       console.log(`${readmePath} does not exist.`);
-      const fileTitle =
-        "# Full-Stack Developer Bootcamp Module 09 - Challenge: README Generator \n";
-      fs.writeFile(readmePath, fileTitle, { flag: "a+" }, (err) => {
+
+      const fileHeader =
+        "Full-Stack Developer Bootcamp Module 09 - Challenge: README Generator \n";
+      fs.writeFile(readmePath, fileHeader, { flag: "a+" }, (err) => {
         if (err) {
           console.log(err);
+          reject("Line 264: File Could Not Be Created.");
         } else {
-          console.log("Line 261: File Created Successfully");
+          console.log("Line 266: File Created Successfully");
+          resolve(false);
         }
       });
-    } else {
-      console.log(`${readmePath} already exists.`);
-    }
+    });
   });
 }
 
@@ -271,7 +277,12 @@ async function init() {
   readmePath = "./output/README.md";
 
   // Determines if README file exists and creates new file if no
-  checkForFile(readmePath);
+  await checkForFile(readmePath);
+
+  // Deprecated in favor of Function, checkForFile
+  // if (checkForFile(readmePath)) {
+  //   // .then(userInput = await inquirer. etc. etc.)
+  // }
 
   // Requests User Input to README Questions
   const userInput = await inquirer.prompt(readmeQuestions);
@@ -281,11 +292,10 @@ async function init() {
   const markdownContent = generateMarkdown(userInput);
   // console.log("Line 284", markdownContent);
 
-  // NEW !!! JULY 20
+  // Writes generated Markdown Content to README file
   writeToFile(readmePath, markdownContent);
 
-  // // // //
-  // THIS WORKS COMMENTED OUT JULY 20 !!! COPIED TO writeToFile
+  // Deprecated in favor of Function, writeToFile
   // fs.appendFile(readmePath, markdownContent, (err) => {
   //   if (err) {
   //     console.log(err);
@@ -293,7 +303,6 @@ async function init() {
   //     console.log("Line 368: Data was successfuly written to file.");
   //   }
   // });
-  // // // //
 }
 
 // Function call to initialize app
